@@ -6,15 +6,17 @@
     <meta charset="utf-8"/>
     <title>{% block title %}Home{% endblock %}</title>
 </head>
-
-<body>
-    <div id="header">
+<header>
+    <h1>PetsLove</h1>
+</header>
+<nav>
+    <div id="main-header">
     	<a href="/" class="logo">Home</a>
         <a href="/cart/" class="logo">Cart</a>
         <a href="/about_company">About us</a>
     </div>
     <div id="subheader">
-        <div class="cart">
+        <div class="user-log">
             {% if user.is_authenticated %}
             Hello, {{ user.username }}!
             <a href="{% url 'login:logout' %}">Log out</a>
@@ -28,5 +30,5 @@
         {% block content %}
         {% endblock %}
     </div>
-</body>
+</nav>
 </html>

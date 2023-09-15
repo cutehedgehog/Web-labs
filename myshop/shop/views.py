@@ -26,3 +26,4 @@ def product_details(request, id):
 
 def about_company(request):
     return render(request, 'information/about_company.html')
+

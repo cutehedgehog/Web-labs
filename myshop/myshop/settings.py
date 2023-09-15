@@ -131,3 +131,5 @@ AUTH_USER_MODEL = 'login.MyUser'
 
 CART_SESSION_ID = 'cart'
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'

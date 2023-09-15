@@ -10,4 +10,4 @@ urlpatterns = [
     path('order/', include('order.urls', namespace='order')),
     path('cart/', include('cart.urls', namespace='cart')),
     path('', include('shop.urls', namespace='shop')),
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
