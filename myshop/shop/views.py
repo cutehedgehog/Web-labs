@@ -32,3 +32,6 @@ def faq(request):
 
 def news(request):
     return render(request, 'information/news.html')
+
+def privacy_policy(request):
+    return render(request, 'information/privacy_policy.html')
