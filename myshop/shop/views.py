@@ -27,3 +27,8 @@ def product_details(request, id):
 def about_company(request):
     return render(request, 'information/about_company.html')
 
+def faq(request):
+    return render(request, 'information/faq.html')
+
+def news(request):
+    return render(request, 'information/news.html')
