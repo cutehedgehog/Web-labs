@@ -1,8 +1,29 @@
 {% extends "base.html" %}
-
+{% load static %}
 
 {% block content %}
-
+<body>
+    <img src="{% static 'media/logo.jpg' %}" alt="Logo not found"><br>
+    <h1>Our logo</h1>
+    <article>
+        PetsLove is a pet store chain that was founded in 1960 in Whittier, California.
+        The store was originally called Love's Pet Shop and was a small pet store that sold products for dogs and cats.
+        Over time, the store expanded its product line to include aquatic products, bird products, and small animal products.
+        In 1987, the store was renamed PetsLove and began to offer a wider range of animals and products.
+        The pet store has remained a family-owned business, with the founder's granddaughter, Christine Chang,
+        taking over as CEO and creative director in 2010. Under Christine's leadership, PetsLove has undergone several upgrades and renovations.
+        In 2015, the store's new owners announced plans for new animals and exhibits, with facilities upgrades first on the list.
+        PetsLove is known for its commitment to animal welfare and education. The pet store offers up-close
+        animal adventures and interactive areas for visitors to enjoy. The store also hosts events throughout the year,
+        such as the annual Pet Expo event, where kids can enjoy the store and learn about animals.
+        PetsLove has become a popular destination for families and animal lovers alike.
+        The pet store and zoo continue to expand their product lines and services, with a focus on providing
+        visitors with a unique and memorable experience.
+    </article>
+    <iframe height="315"
+            src="https://www.youtube.com/watch?v=Exuo216iFm0">
+    </iframe>
+</body>
 {% endblock %}
 
 
