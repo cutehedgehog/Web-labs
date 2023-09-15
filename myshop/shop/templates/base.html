@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <title>{% block title %}Home{% endblock %}</title>
+</head>
+
+<body>
+    <div id="header">
+    	<a href="/" class="logo">Home</a>
+        <a href="/cart/" class="logo">Cart</a>
+        <a href="/about_company">About us</a>
+    </div>
+    <div id="subheader">
+        <div class="cart">
+            {% if user.is_authenticated %}
+            Hello, {{ user.username }}!
+            <a href="{% url 'login:logout' %}">Log out</a>
+            {% else %}
+            <a href="{% url 'login:signup' %}">Sign up</a>
+            <a href="{% url 'login:signin' %}">Sign in</a>
+            {% endif %}
+        </div>
+    </div>
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
