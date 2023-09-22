@@ -6,6 +6,7 @@ class Provider(models.Model):
     email = models.EmailField()
     phone_number = models.CharField(max_length=50)
 
+
     def __str__(self) -> str:
         return f"{self.name}"
        

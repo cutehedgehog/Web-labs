@@ -2,28 +2,35 @@
 {% load static %}
 
 {% block content %}
+
 <body>
-    <img src="{% static 'media/logo.jpg' %}" alt="Logo not found"><br>
-    <h1>Our logo</h1>
-    <article>
-        PetsLove is a pet store chain that was founded in 1960 in Whittier, California.
-        The store was originally called Love's Pet Shop and was a small pet store that sold products for dogs and cats.
-        Over time, the store expanded its product line to include aquatic products, bird products, and small animal products.
-        In 1987, the store was renamed PetsLove and began to offer a wider range of animals and products.
-        The pet store has remained a family-owned business, with the founder's granddaughter, Christine Chang,
-        taking over as CEO and creative director in 2010. Under Christine's leadership, PetsLove has undergone several upgrades and renovations.
-        In 2015, the store's new owners announced plans for new animals and exhibits, with facilities upgrades first on the list.
-        PetsLove is known for its commitment to animal welfare and education. The pet store offers up-close
-        animal adventures and interactive areas for visitors to enjoy. The store also hosts events throughout the year,
-        such as the annual Pet Expo event, where kids can enjoy the store and learn about animals.
-        PetsLove has become a popular destination for families and animal lovers alike.
-        The pet store and zoo continue to expand their product lines and services, with a focus on providing
-        visitors with a unique and memorable experience.
-    </article>
-    <iframe height="315"
-            src="https://www.youtube.com/watch?v=Exuo216iFm0">
-    </iframe>
+  <header>
+    <h1>About Our Company</h1>
+  </header>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/AaK0AKQFCNY?si=B_vWi5RsMWGwC4wA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  <section>
+    <h2>Company History</h2>
+    <p>
+      Our pet product selling company was founded in 2005 with a mission to provide high-quality and innovative products for pets. Over the years, we have grown into a trusted brand in the pet industry, serving thousands of satisfied customers worldwide.
+    </p>
+  </section>
+
+  <section>
+    <h1>Company Requisites</h1>
+    <ul itemscope itemtype="https://schema.org/Organization">
+        <li><strong>Name:</strong> <span itemprop="name">Pets Love Company</span></li>
+        <li><strong>Location:</strong> <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress"><span itemprop="addressLocality">City</span>, <span itemprop="addressRegion">State</span>, <span itemprop="addressCountry">Country</span></span></li>
+        <li><strong>Contact:</strong> <a href="tel:+123456789" itemprop="telephone">+1 (234) 567-89</a></li>
+        <li><strong>Email:</strong> <a href="mailto:info@petproductcompany.com" itemprop="email">info@petslovecompany.com</a></li>
+        <li><strong>Website:</strong> <a href="https://www.petproductcompany.com" itemprop="url">www.petslovecompany.com</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>&copy; 2023 Pets Love. All rights reserved.</p>
+  </footer>
 </body>
+
 {% endblock %}
 
 

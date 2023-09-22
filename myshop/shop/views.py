@@ -3,6 +3,7 @@ from .models import Provider, Product
 from django.shortcuts import render, redirect, get_object_or_404
 from cart.forms import AddProductForm
 
+
 def product_list(request, product_provider_name=None):
     products = Product.objects.all()
     provider = None
@@ -35,3 +36,6 @@ def news(request):
 
 def privacy_policy(request):
     return render(request, 'information/privacy_policy.html')
+
+def home(request):
+    return render(request, 'product/home.html')
