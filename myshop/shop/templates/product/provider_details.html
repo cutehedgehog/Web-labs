@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="provider-detail">
+    <h2>{{ provider.name }}</h2>
+        <p>Name: {{ provider.name }}</p>
+        <p>Email: {{ provider.email }}</p>
+        <p>Phone number: {{ provider.phone_number }}</p>
+
+    <div id="main" class="product-list">
+        <h4>Products</h4>
+        {% for product in products %}
+            <div class="item">
+                <a href="{{ product.get_absolute_url }}">{{ product.name }}</a><br>
+                ${{ product.price }}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

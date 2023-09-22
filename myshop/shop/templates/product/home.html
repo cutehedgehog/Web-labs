@@ -9,4 +9,9 @@
         <a href="https://chappi.ru/"><img src="media/Chappi_Logo.png" alt="purina" height="100"></a>
         <a href="https://www.whiskas.co.uk/"><img src="media/Whiskas_Logo.png" alt="purina" height="100"></a>
     </div>
+    <div>
+        {% if user.is_staff %}
+        Hello, superuser!
+        {% endif %}
+    </div>
 {% endblock %}

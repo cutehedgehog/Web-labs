@@ -13,7 +13,9 @@
     <div id="main-header">
     	<a href="/" class="logo">Home</a>
         <a href="/list_products">Products</a>
+        {%if not user.is_staff%}
         <a href="/cart/" class="logo">Cart</a>
+        {% endif %}
         <a href="/about_company">About us</a>
         <a href="/news">News</a>
         <a href="/faq">FAQ</a>
