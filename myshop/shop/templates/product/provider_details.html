@@ -17,5 +17,26 @@
             </div>
         {% endfor %}
     </div>
-</div>
+</div><p>
+<form method="post" action="{% url 'shop:create_product' provider.name %}">
+  {% csrf_token %}
+
+  <label for="id_name">Name:</label>
+  <input type="text" name="name" id="id_name"><br>
+
+  <label for="id_price">Price:</label>
+  <input type="number" name="price" id="id_price"><br>
+
+  <label for="id_vendor_code">Vendor Code:</label>
+  <input type="text" name="vendor_code" id="id_vendor_code"><br>
+
+  <label for="id_categories">Categories:</label>
+  <select name="categories" id="id_categories" multiple>
+    {% for category in categories %}
+      <option value="{{ category.id }}">{{ category.name }}</option>
+    {% endfor %}
+  </select><br>
+
+  <input type="submit" value="Add product">
+</form>
 {% endblock %}

@@ -11,13 +11,13 @@
             </li>
             {% endif %}
             {% for p in providers %}
-                <li >
-                    {%if not user.is_staff%}
-                    <a href="{{ p.sort_products }}">{{ p.name }}</a>
-                    {% else %}
-                    <a href="{{ p.get_absolute_url }}">{{ p.name }}</a>
-                    {% endif %}
-                </li>
+                {%if not user.is_staff%}
+                <li><a href="{{ p.sort_products }}">{{ p.name }}</a></li>
+                {% else %}
+                {% if p.worker == user%}
+                <li><a href="{{ p.get_absolute_url }}">{{ p.name }}</a></li>
+                {% endif %}
+                {% endif %}
             {% endfor %}
         </ul>
     </div>
@@ -36,9 +36,11 @@
     <h4>Choose provider to add:</h4>
     <select>
        {% for p in providers %}
+            {%if p.worker is null%}
             <option>
                 {{ p.name }}
             </option>
+            {% endif %}
        {% endfor %}
     </select>
     {% endif %}

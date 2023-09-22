@@ -8,6 +8,14 @@
     <h1>{{ product.name }}</h1>
     <p class="provider">Provider: {{ product.provider.name }}</p>
     <p class="cost">Cost: {{ product.price }}</p>
+    <p class="category"> Category:<br>
+        <ul>
+            {% for c in product.categories.all%}
+            <li>{{c.name}}</li>
+            {% endfor %}
+        </ul>
+
+    </p>
     {%if user.is_authenticated and not user.is_staff%}
     <form action="{% url 'cart:cart_add' product.id %}" method="post">
         <br>
@@ -17,6 +25,5 @@
     </form>
     {%endif%}
 
-    {{ book.summary|linebreaks }}
 </div>
 {% endblock %}
