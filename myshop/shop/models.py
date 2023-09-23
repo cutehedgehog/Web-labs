@@ -36,3 +36,22 @@ class Product(models.Model):
         return reverse('shop:product_details', args=[str(self.id)])
 
 
+class FAQ(models.Model):
+    question = models.CharField(max_length=100)
+    answer = models.TextField(blank=False)
+    date = models.DateField()
+
+
+class Review(models.Model):
+    author = models.ForeignKey(MyUser, on_delete=models.DO_NOTHING)
+    review_text = models.TextField(blank=True)
+    review_date = models.DateField()
+    rate_choices = (
+        (1, 1),
+        (2, 2),
+        (3, 3),
+        (4, 4),
+        (5, 5)
+    )
+
+

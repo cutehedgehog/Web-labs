@@ -6,6 +6,7 @@
         <h3>Providers</h3>
         <ul>
             {%if not user.is_staff%}
+
             <li>
                 <a href="{% url "shop:list_products" %}">All</a>
             </li>
@@ -22,6 +23,11 @@
         </ul>
     </div>
     {%if not user.is_staff%}
+    <form action="{{ request.get_full_path }}" method="get">
+            <button type="submit" name="sort" value="ascending">Sort by price ascending</button>
+            <button type="submit" name="sort" value="descending">Sort by price descending</button>
+
+    </form>
     <div id="main" class="product-list">
         <h2>Products</h2>
         {% for product in products %}
@@ -32,5 +38,6 @@
         {% endfor %}
     </div>
     {% endif %}
+
 
 {% endblock %}

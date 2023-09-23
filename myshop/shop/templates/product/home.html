@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
+    {%if fact_about_cat %}
+    Here is fact about cat: <strong>{{ fact_about_cat }}</strong>
+    {% endif %}
     <img src="media/optimanova_banner.png">
     <div>
         <h2>Our partners</h2>
@@ -10,8 +13,8 @@
         <a href="https://www.whiskas.co.uk/"><img src="media/Whiskas_Logo.png" alt="purina" height="100"></a>
     </div>
     <div>
-        {% if user.is_staff %}
-        Hello, superuser!
-        {% endif %}
+        {%if user.is_staff%}
+    <a href="order/list_orders">Orders</a><br>
+    {% endif %}
     </div>
 {% endblock %}

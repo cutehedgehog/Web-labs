@@ -10,10 +10,9 @@
             <ul>
             {% for item in order.items.all %}
                 <li>
-                    <img src="{{ item.trip.image.url }}" alt="{{ item.trip.image }}" width="100" height="100"><br>
-                    {{ item.trip }} — cost: {{ item.cost }} — quantity: {{ item.quantity }}
+                    {{ item.product.name }} <br> cost: {{ item.cost }} <br> quantity: {{ item.quantity }}
                 </li>
-                <br>
+
                 {% endfor %}
             </ul>
         {% empty %}
