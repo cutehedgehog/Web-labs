@@ -52,6 +52,7 @@ def privacy_policy(request):
 
 def home(request):
     return render(request, 'product/home.html')
+
 @require_POST
 def create_product(request, provider_name):
     provider = get_object_or_404(Provider, name=provider_name)
@@ -62,4 +63,32 @@ def create_product(request, provider_name):
         product.save()
         form.save_m2m()
         return redirect('shop:list_products')
+def delete_product(request, id):
+    product = get_object_or_404(Product, id=id)
+    product.delete()
+    return redirect('/')
 
+def edit_product(request, provider_name, id):
+    product = get_object_or_404(Product, id=id)
+    categories = ProductCategory.objects.all()
+    provider = get_object_or_404(Provider, name=provider_name)
+    form = ProductForm(instance=product)
+    if request.method == "POST":
+        form = ProductForm(request.POST, instance=product)
+        if form.is_valid():
+            form_product = form.save(commit=False)
+            form_product.provider = provider
+            form_product.save()
+            form.save_m2m()
+            return redirect('shop:list_products')
+    return render(request, 'product/edit_product.html', {'form': form, 'product': product, 'categories': categories})
+# @require_POST
+# def add_provider(request, user_email):
+#     user = get_object_or_404(MyUser, email=user_email)
+#     form = ProviderForm(request.POST)
+#     if form.is_valid():
+#         provider = form.save(commit=False)
+#         provider.worker = user
+#         provider.save()
+#         return redirect('shop:list_products')
+#     return redirect('shop:home')

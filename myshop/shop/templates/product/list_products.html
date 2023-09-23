@@ -32,16 +32,5 @@
         {% endfor %}
     </div>
     {% endif %}
-    {%if user.is_staff%}
-    <h4>Choose provider to add:</h4>
-    <select>
-       {% for p in providers %}
-            {%if p.worker is null%}
-            <option>
-                {{ p.name }}
-            </option>
-            {% endif %}
-       {% endfor %}
-    </select>
-    {% endif %}
+
 {% endblock %}

@@ -8,7 +8,7 @@
     <h1>{{ product.name }}</h1>
     <p class="provider">Provider: {{ product.provider.name }}</p>
     <p class="cost">Cost: {{ product.price }}</p>
-    <p class="category"> Category:<br>
+    <p class="category"> Category:
         <ul>
             {% for c in product.categories.all%}
             <li>{{c.name}}</li>
@@ -24,6 +24,12 @@
         <input type="submit" value="Add to cart">
     </form>
     {%endif%}
-
+    {%if user.is_staff%}
+    <div id="main" class="product-list">
+        <a href="{% url 'shop:delete_product' product.id %}"> Delete </a><br>
+        <a href="{% url 'shop:edit_product' provider_name=product.provider.name id=product.id %}"> Edit </a><br>
+    {% endif %}
+</div>
 </div>
 {% endblock %}
+

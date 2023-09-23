@@ -12,9 +12,10 @@ urlpatterns = [
     path('list_products/', views.product_list, name='list_products'),
     path('privacy_policy/', views.privacy_policy, name='privacy_policy'),
     path('list_products/<int:id>', views.product_details, name='product_details'),
+    path('delete_product/<int:id>', views.delete_product, name='delete_product'),
+    path('edit_product/<str:provider_name>/<int:id>/', views.edit_product, name='edit_product'),
     path('list_products/<str:name>', views.provider_details, name='provider_details'),
     path('list_products/<str:product_provider_name>/', views.product_list,
          name='list_products_by_provider'
          ),
-
 ]
