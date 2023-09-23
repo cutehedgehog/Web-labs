@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<body>
+    <h1>Vacancies</h1>
+    <ul>
+        {% for v in vacancies_list%}
+        <li>
+            <p>
+                <strong>{{v.title}}</strong>
+            </p>
+            <p>
+                {{v.description}}
+            </p>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+
+{% endblock %}

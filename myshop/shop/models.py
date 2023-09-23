@@ -7,6 +7,7 @@ class Provider(models.Model):
     email = models.EmailField()
     phone_number = models.CharField(max_length=50)
     worker = models.ForeignKey(MyUser, related_name='providers', on_delete=models.CASCADE, blank=True, null=True)
+
     def __str__(self) -> str:
         return f"{self.name}"
        
@@ -55,3 +56,20 @@ class Review(models.Model):
     )
 
 
+class News(models.Model):
+    title = models.CharField(max_length=100)
+    news_text = models.TextField(blank=False)
+    date = models.DateField()
+    image = models.ImageField(upload_to='media/', default='media/logo.jpg')
+
+
+class Vacancy(models.Model):
+    title = models.CharField(max_length=50)
+    description = models.TextField()
+
+
+class Coupon(models.Model):
+    title = models.CharField(max_length=150)
+    description = models.TextField()
+    start_date = models.DateField()
+    end_date = models.DateField()

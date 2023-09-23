@@ -13,6 +13,7 @@ class MyUser(AbstractUser):
                        'email', 'date_of_birth', 'phone_number']
     USERNAME_FIELD = 'username'
     objects = MyUserManager()
+    image = models.ImageField(upload_to='user/', default='user/test.jpg')
 
     def __str__(self) -> str:
         return f"{self.username}, {self.email}, id: {self.id}"

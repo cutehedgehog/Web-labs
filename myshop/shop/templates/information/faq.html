@@ -1,5 +1,13 @@
 {% extends "base.html" %}
-{% load static %}
+
+{% block title %}FAQs{% endblock %}
 
 {% block content %}
+    {% for question in questions %}
+        <details>
+            <summary>{{ question.question }}</summary>
+            <p>{{ question.answer }}</p>
+            {{ question.date }}
+        </details>
+    {% endfor %}
 {% endblock %}

@@ -26,13 +26,14 @@ class MyUserCreationForm(UserCreationForm):
                                        regex=r'^(\+375 (?:\(29\)|\(33\)|\(44\)|\(25\)) [0-9]{3}-[0-9]{2}-[0-9]{2})$',
                                        message='Pattern: +375 (29/25/33/44) XXX-XX-XX',
                                    )])
+    image = forms.ImageField()
 
     class Meta:
         model = MyUser
         fields = {'username', 'email', 'first_name',
                   'last_name', 'date_of_birth',
                   'phone_number', 'password1',
-                  'password2'
+                  'password2', 'image'
                   }
 
     def __init__(self, *args, **kwargs):
@@ -41,7 +42,7 @@ class MyUserCreationForm(UserCreationForm):
             (field_name, self.fields[field_name])
             for field_name in [
                 'username', 'email', 'first_name', 'last_name', 'date_of_birth',
-                'phone_number', 'password1', 'password2'
+                'phone_number', 'password1', 'password2', 'image'
             ]
         )
 
@@ -52,6 +53,7 @@ class MyUserCreationForm(UserCreationForm):
         user.last_name = self.cleaned_data['last_name']
         user.date_of_birth = self.cleaned_data['date_of_birth']
         user.phone_number = self.cleaned_data['phone_number']
+        user.image = self.cleaned_data['image']
 
         if commit:
             user.save(True)

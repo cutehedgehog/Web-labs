@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Provider, Product, ProductCategory
+from .models import Provider, Product, ProductCategory, FAQ, Coupon, Vacancy, News
 from django.shortcuts import render, redirect, get_object_or_404
 from cart.forms import AddProductForm
 from login.models import MyUser
@@ -45,17 +45,40 @@ def provider_details(request, name):
                   {'provider': provider,
                    'products': products,
                    'categories': categories})
+
+
 def about_company(request):
     return render(request, 'information/about_company.html')
 
+
 def faq(request):
-    return render(request, 'information/faq.html')
+    questions = FAQ.objects.all()
+    return render(request, 'information/faq.html', {'questions':questions})
+
 
 def news(request):
     return render(request, 'information/news.html')
 
+
 def privacy_policy(request):
     return render(request, 'information/privacy_policy.html')
+
+
+def vacancies(request):
+    vacancies_list = Vacancy.objects.all()
+    return render(request, 'information/vacancies.html', {'vacancies_list': vacancies_list})
+
+
+def coupons(request):
+    coupons_list = Coupon.objects.all()
+    return render(request, 'information/coupons.html', {'coupons_list': coupons_list})
+
+
+def contacts(request):
+    workers = MyUser.objects.all()
+    workers = workers.filter(is_staff=True)
+    return render(request, 'information/contacts.html', {'workers': workers})
+
 
 def home(request):
     response = requests.get(API_URLS['fact_about_cat'])
@@ -75,6 +98,8 @@ def create_product(request, provider_name):
         product.save()
         form.save_m2m()
         return redirect('shop:list_products')
+
+
 def delete_product(request, id):
     product = get_object_or_404(Product, id=id)
     product.delete()

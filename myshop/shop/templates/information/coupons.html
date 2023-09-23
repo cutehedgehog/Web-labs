@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<body>
+    <h1>Coupons</h1>
+    <ul>
+        {% for c in coupons_list%}
+        <li>
+            <p>
+                <strong>{{c.title}}</strong>
+            </p>
+            <p>
+                {{c.description}}
+            </p>
+            <p>
+                Last from <time>{{c.start_date}}</time> to <time>{{c.end_date}}</time>
+            </p>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+
+{% endblock %}
